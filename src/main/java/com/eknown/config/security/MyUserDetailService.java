@@ -3,6 +3,8 @@ package com.eknown.config.security;
 import com.eknown.logic.service.MenuService;
 import com.eknown.model.beans.entity.User;
 import com.eknown.model.dao.UserDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,6 +28,8 @@ import java.util.Collection;
 @Configuration
 public class MyUserDetailService implements UserDetailsService {
 
+    private Logger logger = LoggerFactory.getLogger(MyUserDetailService.class);
+
     @Resource
     private UserDAO userDAO;
 
@@ -34,6 +38,8 @@ public class MyUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        logger.info("登陆用户名：" + username);
 
         User user = userDAO.findByName(username);
         if (user == null) {

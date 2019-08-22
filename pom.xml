@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.eknown</groupId>
-    <artifactId>template</artifactId>
+    <artifactId>security-template-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>template</name>
     <description>Spring Security User + Role + CRUD Template System</description>
